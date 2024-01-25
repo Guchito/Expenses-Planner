@@ -4,3 +4,5 @@ export const Msg = ({children, tipo}) => {
     <div className={`alerta ${tipo}`}>{children}</div>
   )
 }
+
+export default Msg
