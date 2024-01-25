@@ -3,3 +3,7 @@ export const getId = () => {
     const date = Date.now().toString(36)
     return random + date
 }
+
+export const formatDate = date => {
+    return new Date(date).toLocaleDateString('en-UK')
+}

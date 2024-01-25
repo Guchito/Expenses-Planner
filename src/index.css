@@ -22,7 +22,7 @@ html {
     box-sizing: inherit;
 }
 
-.fijar {
+.fix {
     overflow: hidden;
     height: 100vh;
 }
@@ -252,10 +252,10 @@ main {
     background-color: var(--gris-claro);
 }
 
-.listado-gastos {
+.list-expenses {
     margin-top: 5rem;
 }
-.listado-gastos h2 {
+.list-expenses h2 {
     color: var(--gris-oscuro);
     font-weight: 900;
 }
@@ -264,7 +264,7 @@ main {
     font-size: 2.2rem;
 }
 
-.gasto {
+.expense {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -273,48 +273,48 @@ main {
     width: 100%;
 }
 
-.cantidad-gasto {
+.amount-expense {
     font-size: 2.4rem;
     color: var(--negro);
     font-weight: 900;
 }
 
-.contenido-gasto {
+.content-expense {
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-.contenido-gasto img {
+.content-expense img {
     width: 10rem;
 }
 
-.descripcion-gasto p {
+.description-expense p {
     margin: 0 0 0.3rem 0;
 }
-.descripcion-gasto .categoria {
+.description-expense .category {
     color: var(--gris);
     font-size: 1.6rem;
     font-weight: 900;
     text-transform: uppercase;
 }
-.descripcion-gasto p {
+.description-expense p {
     margin-bottom: 1rem;
 }
-.descripcion-gasto .nombre-gasto {
+.description-expense .name-expense {
     color: var(--gris-oscuro);
     font-size: 2.4rem;
     font-weight: 700;
 }
-.descripcion-gasto .nombre-gasto:hover {
+.description-expense .name-expense:hover {
     cursor: pointer;
 }
-.descripcion-gasto .fecha-gasto {
+.description-expense .date-expense {
     font-size: 1.8rem;
     font-weight: 900;
     color: var(--gris-oscuro);
 }
-.descripcion-gasto .fecha-gasto span {
+.description-expense .date-expense span {
     font-weight: 400;
 }
 
