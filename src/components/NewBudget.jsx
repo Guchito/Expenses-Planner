@@ -1,7 +1,11 @@
 import {useState} from 'react'
 import { Msg } from './Msg'
 
-export const NewBudget = ({budget, setBudget, setIsValidBudget}) => {
+export const NewBudget = ({
+    budget, 
+    setBudget, 
+    setIsValidBudget
+}) => {
     
     const [msg, setMsg] = useState('')
     
@@ -17,13 +21,13 @@ export const NewBudget = ({budget, setBudget, setIsValidBudget}) => {
     }
 
     return (
-        <div className='contenedor-presupuesto sombra'>
-            <form onSubmit={handleBudget} className="formulario">
-                <div className="campo">
+        <div className='container-budget shadow'>
+            <form onSubmit={handleBudget} className="form">
+                <div className="field">
                     <label> Set budget</label>
                 <input 
                     type="number"
-                    className='nuevo-presupuesto'
+                    className='new-budget'
                     placeholder='Add your budget'
                     value={budget}
                     onChange={ e => setBudget(Number(e.target.value))}
@@ -36,3 +40,5 @@ export const NewBudget = ({budget, setBudget, setIsValidBudget}) => {
         </div>
     )
 }
+
+export default NewBudget
