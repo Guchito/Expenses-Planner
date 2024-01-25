@@ -34,7 +34,7 @@ h2 {
     font-size: 3rem;
 }
 
-.sombra {
+.shadow {
     box-shadow: 0px 9px 10px -10px rgba(0, 0, 0, 0.51);
     -webkit-box-shadow: 0px 9px 10px -10px rgba(0, 0, 0, 0.51);
     -moz-box-shadow: 0px 9px 10px -10px rgba(0, 0, 0, 0.51);
@@ -56,18 +56,18 @@ header h1 {
     text-transform: uppercase;
 }
 
-.formulario {
+.form {
     width: 95%;
     margin: 0 auto;
     padding: 10rem 0;
 }
 @media (min-width: 768px) {
-    .formulario {
+    .form {
         padding: 5rem 0;
         width: 60rem;
     }
 }
-.formulario legend {
+.form legend {
     font-size: 3.6rem;
     text-align: center;
     display: block;
@@ -77,20 +77,20 @@ header h1 {
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--azul);
 }
-.formulario .campo {
+.form .field {
     display: grid;
     margin-bottom: 2rem;
 }
 
-.formulario label {
+.form label {
     color: var(--azul);
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.formulario input[type="text"],
-.formulario input[type="number"] {
+.form input[type="text"],
+.form input[type="number"] {
     background-color: var(--gris-claro);
     border-radius: 1rem;
     padding: 1rem;
@@ -98,7 +98,7 @@ header h1 {
     flex: 1;
     font-size: 1.6rem;
 }
-.formulario input[type="submit"] {
+.form input[type="submit"] {
     background-color: #1048a4;
     border: none;
     padding: 1rem;
@@ -112,17 +112,17 @@ header h1 {
     transition: background-color 300ms ease;
 }
 @media (min-width: 768px) {
-    .formulario input[type="submit"] {
+    .form input[type="submit"] {
         display: block;
         padding: 1rem 5rem;
     }
 }
-.formulario input[type="submit"]:hover {
+.form input[type="submit"]:hover {
     background-color: #042a67;
     cursor: pointer;
 }
 
-.formulario select {
+.form select {
     flex: 1;
     padding: 1rem;
     border: none;
@@ -146,12 +146,12 @@ header h1 {
     color: #b91c1c;
 }
 
-.contenedor {
+.container {
     width: 90%;
     max-width: 80rem;
     margin: 0 auto;
 }
-.contenedor-presupuesto {
+.container-budget {
     margin-top: -5rem;
 
     display: flex;
@@ -160,54 +160,54 @@ header h1 {
 
     transform: translateY(5rem);
 }
-.dos-columnas {
+.two-columns {
     flex-direction: column;
 }
-.dos-columnas :first-child {
+.two-columns :first-child {
     margin-bottom: 4rem;
 }
 @media (min-width: 768px) {
-    .dos-columnas {
+    .two-columns {
         flex-direction: row;
         align-items: center;
         gap: 4rem;
     }
-    .dos-columnas > div {
+    .two-columns > div {
         width: 50%;
     }
-    .dos-columnas :first-child {
+    .two-columns :first-child {
         margin-bottom: 0;
     }
 }
-.formulario input[type="text"].nuevo-presupuesto, 
-.formulario input[type="number"].nuevo-presupuesto {
+.form input[type="text"].new-budget, 
+.form input[type="number"].new-budget {
     font-size: 2.8rem;
     text-align: center;
 }
 
-.contenedor-presupuesto svg {
+.container-budget svg {
     width: 25rem;
 }
 
-.contenido-presupuesto {
+.content-budget {
     width: 100%;
 }
-.contenido-presupuesto p {
+.content-budget p {
     font-weight: 400;
     color: var(--gris-oscuro);
     font-size: 2.4rem;
     text-align: center;
 }
 @media (min-width: 768px) {
-    .contenido-presupuesto p {
+    .content-budget p {
         text-align: left;
     }
 }
-.contenido-presupuesto p.negativo,
-.contenido-presupuesto p.negativo span {
+.content-budget p.negativo,
+.content-budget p.negativo span {
     color: red;
 }
-.contenido-presupuesto span {
+.content-budget span {
     font-weight: 900;
     color: var(--azul);
 }
@@ -233,7 +233,7 @@ main {
     padding-top: 10rem;
 }
 
-.filtros .campo {
+.filtros .field {
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -318,16 +318,16 @@ main {
     font-weight: 400;
 }
 
-.nuevo-gasto {
+.new-expense {
     position: fixed;
     bottom: 5rem;
     right: 5rem;
 }
 
-.nuevo-gasto img {
+.new-expense img {
     width: 5rem;
 }
-.nuevo-gasto img:hover {
+.new-expense img:hover {
     cursor: pointer;
 }
 
@@ -339,18 +339,18 @@ main {
     right: 0;
     bottom: 0;
 }
-.modal .cerrar-modal {
+.modal .close-modal {
     position: absolute;
     right: 3rem;
     top: 3rem;
     width: 3rem;
     height: 3rem;
 }
-.modal .cerrar-modal img {
+.molose img {
     width: 100%;
 }
 
-.modal .formulario {
+.modal .form {
     max-width: 80rem;
     width: 40rem;
     transition-property: all;
@@ -365,12 +365,12 @@ body .modal {
     overflow: hidden;
 }
 
-.modal .formulario.animar {
+.modal .form.animar {
     position: relative;
     opacity: 1;
 }
 
-.modal .formulario.cerrar {
+.modal .form.cerrar {
     opacity: 0;
 }
 
