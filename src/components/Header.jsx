@@ -4,16 +4,19 @@ import BudgetControl from './budgetControl'
 
 
 export const Header = ({
+    expenses,
     budget, 
     setBudget, 
     setIsValidBudget, 
-    isValidBudget}) => {
+    isValidBudget
+    }) => {
   return (
     <header>
         <h1>Expenses planner</h1>
 
         {isValidBudget ? ( 
-            <BudgetControl 
+            <BudgetControl
+            expenses={expenses} 
             budget={budget}
             />
         ): (

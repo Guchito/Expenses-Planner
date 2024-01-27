@@ -6,7 +6,6 @@ export const NewBudget = ({
     setBudget, 
     setIsValidBudget
 }) => {
-    
     const [msg, setMsg] = useState('')
     
     const handleBudget = (e) => {
