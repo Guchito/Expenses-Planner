@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import ListExpenses from './components/ListExpenses'
 import Modal from './components/modal'
@@ -14,9 +14,21 @@ function App() {
   const [modal, setModal] = useState(false)
   const [animateModal, setAnimateModal] = useState(false)
 
+  const [editExpense, setEditExpense] =useState({})
+
+  useEffect(()=>{
+    if(Object.keys(editExpense).length > 0) {
+      setModal(true)
+
+      setTimeout(()=> {
+        setAnimateModal(true)
+      },500)
+    }
+  },[editExpense])
 
   const handleNewExpense = () => {
     setModal(true)
+    setEditExpense({})
 
     setTimeout(()=> {
       setAnimateModal(true)
@@ -24,9 +36,18 @@ function App() {
   }
 
   const saveExpense = expense =>{
-    expense.id = getId()
-    expense.date = Date.now()
-    setExpenses([...expenses, expense])
+    if(expense.id) {
+      //update
+      const updatedExpense = expenses.map(expenseState => 
+        expenseState.id === expense.id ? expense : expenseState )
+        setExpenses(updatedExpense)
+        setEditExpense({})
+    }else{
+      //new expense
+      expense.id = getId()
+      expense.date = Date.now()
+      setExpenses([...expenses, expense])
+    }
     
     setAnimateModal(false)
     setTimeout(()=> {
@@ -34,6 +55,11 @@ function App() {
     },500)
   }
 
+  const deleteExpense = id => {
+    const updateExpenses = expenses.filter( expense => expense.id !== id)
+    setExpenses(updateExpenses)
+  }
+  
   return (
     <div className={modal ? 'fix' : ''}>
       <Header 
@@ -48,6 +74,8 @@ function App() {
           <main>
             <ListExpenses 
               expenses={expenses}
+              setEditExpense={setEditExpense}
+              deleteExpense={deleteExpense}
             />
           </main>  
           <div className="new-expense">
@@ -64,6 +92,8 @@ function App() {
                 animateModal={animateModal}
                 setAnimateModal={setAnimateModal}
                 saveExpense={saveExpense}
+                editExpense={editExpense}
+                setEditExpense={setEditExpense}
               />}
     </div>
   )
