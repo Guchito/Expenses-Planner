@@ -2,7 +2,7 @@ import React from "react"
 import Expense from "./Expense"
 
 
-const ListExpenses = ({expenses}) => {
+const ListExpenses = ({expenses, setEditExpense, deleteExpense}) => {
     
   return (
     <div className="list-expenses container">
@@ -12,6 +12,8 @@ const ListExpenses = ({expenses}) => {
             <Expense 
                 key={expense.id}
                 expense={expense}
+                setEditExpense={setEditExpense}
+                deleteExpense={deleteExpense}
             />
         ))}
     
