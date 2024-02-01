@@ -5,6 +5,7 @@ import BudgetControl from './budgetControl'
 
 export const Header = ({
     expenses,
+    setExpenses,
     budget, 
     setBudget, 
     setIsValidBudget, 
@@ -16,8 +17,11 @@ export const Header = ({
 
         {isValidBudget ? ( 
             <BudgetControl
-            expenses={expenses} 
+            expenses={expenses}
+            setExpenses={setExpenses} 
             budget={budget}
+            setBudget={setBudget}
+            setIsValidBudget={setIsValidBudget}
             />
         ): (
             <NewBudget 

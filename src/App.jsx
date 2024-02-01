@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import ListExpenses from './components/ListExpenses'
 import Modal from './components/modal'
+import Filter from './components/filter'
 import {getId} from './helpers'
 import NewExpenseIcon from './img/nuevo-gasto.svg'
 
@@ -18,7 +19,10 @@ function App() {
   const [modal, setModal] = useState(false)
   const [animateModal, setAnimateModal] = useState(false)
 
-  const [editExpense, setEditExpense] =useState({})
+  const [editExpense, setEditExpense] = useState({})
+
+  const [filter, setFilter] = useState('')
+  const [filteredExpenses, setFilteredExpenses] = useState([])
 
   useEffect(()=>{
     if(Object.keys(editExpense).length > 0) {
@@ -29,6 +33,14 @@ function App() {
       },500)
     }
   },[editExpense])
+
+
+  useEffect(() => {
+    if(filter) {
+      const filteredExpenses = expenses.filter(expense => expense.category === filter)
+      setFilteredExpenses(filteredExpenses)
+    }
+  },[filter])
 
 
   //Local Storage
@@ -87,6 +99,7 @@ function App() {
     <div className={modal ? 'fix' : ''}>
       <Header 
         expenses={expenses}
+        setExpenses={setExpenses}
         budget={budget}
         setBudget={setBudget}
         isValidBudget={isValidBudget}
@@ -95,10 +108,16 @@ function App() {
       {isValidBudget && (
         <>
           <main>
-            <ListExpenses 
+            <Filter 
+            filter = {filter}
+            setFilter = {setFilter}
+            />
+            <ListExpenses
               expenses={expenses}
               setEditExpense={setEditExpense}
               deleteExpense={deleteExpense}
+              filter={filter}
+              filteredExpenses={filteredExpenses} 
             />
           </main>  
           <div className="new-expense">
