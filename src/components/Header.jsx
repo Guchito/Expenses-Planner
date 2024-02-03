@@ -9,7 +9,10 @@ export const Header = ({
     budget, 
     setBudget, 
     setIsValidBudget, 
-    isValidBudget
+    isValidBudget,
+    filter,
+    filteredAmount,
+    percentageCat
     }) => {
   return (
     <header>
@@ -22,6 +25,9 @@ export const Header = ({
             budget={budget}
             setBudget={setBudget}
             setIsValidBudget={setIsValidBudget}
+            filter={filter}
+            filteredAmount={filteredAmount}
+            percentageCat={percentageCat}
             />
         ): (
             <NewBudget 

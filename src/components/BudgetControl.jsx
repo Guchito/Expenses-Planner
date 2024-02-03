@@ -2,7 +2,16 @@ import { useState, useEffect } from "react"
 import {CircularProgressbar, buildStyles} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
-const BudgetControl = ( {budget, setBudget, expenses, setExpenses, setIsValidBudget} ) => {
+const BudgetControl = ( {budget, 
+        setBudget, 
+        expenses, 
+        setExpenses, 
+        setIsValidBudget,
+        filter,
+        filteredAmount,
+        percentageCat
+    
+    } ) => {
     
     const [percentage, setPercentage] = useState(0)
     const [available, setAvailable] = useState(0)
@@ -16,9 +25,12 @@ const BudgetControl = ( {budget, setBudget, expenses, setExpenses, setIsValidBud
         //Calculate percetage
         const newPercentage = (((budget - totalAvailable)/budget) * 100).toFixed(0)
         
+       
         
         setSpent(totalSpent)
         setAvailable(totalAvailable)
+        
+        
        
        setTimeout(() => {
            setPercentage(newPercentage)
@@ -26,6 +38,8 @@ const BudgetControl = ( {budget, setBudget, expenses, setExpenses, setIsValidBud
        
     }, [expenses])
     
+    
+
 
     const formatAmount = (amount) => {
         return amount.toLocaleString('en-US', {
@@ -57,6 +71,25 @@ const BudgetControl = ( {budget, setBudget, expenses, setExpenses, setIsValidBud
                 text={`${percentage}%`}
             
             />
+            {useEffect(() => {
+                console.log(percentageCat)
+                filteredAmount !== 0 ? (
+                <CircularProgressbar 
+                    styles={buildStyles({
+                        pathColor: percentage > 100 ? '#DC2626' :'#3B82F6',
+                        trailColor: '#F5F5F5',
+                        textColor: percentage > 100 ? '#DC2626' :'#3B82F6'
+    
+                    })}
+                    value={percentageCat}
+                    text={`${percentageCat}% of spent`}
+                
+                />
+                    
+                ):('')
+
+
+            })}
 
         </div>
         <div className="content-budget">
@@ -76,6 +109,12 @@ const BudgetControl = ( {budget, setBudget, expenses, setExpenses, setIsValidBud
             <p>
                 <span>Spent: </span> {formatAmount(spent)}
             </p>
+            {filter ? (
+                <p>
+                    <span>{`Spent in ${filter}:`} </span> {formatAmount(filteredAmount)}
+                </p>
+            ) : ('')}
+        
         </div>
     </div>
   )

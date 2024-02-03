@@ -23,6 +23,9 @@ function App() {
 
   const [filter, setFilter] = useState('')
   const [filteredExpenses, setFilteredExpenses] = useState([])
+  const [filteredAmount, setFilteredAmount] = useState(0)
+  const [percentageCat, setPercentageCat] =useState(0)
+
 
   useEffect(()=>{
     if(Object.keys(editExpense).length > 0) {
@@ -39,6 +42,19 @@ function App() {
     if(filter) {
       const filteredExpenses = expenses.filter(expense => expense.category === filter)
       setFilteredExpenses(filteredExpenses)
+      
+      //Total in category
+      const totalCategory = filteredExpenses.reduce((totalC, expenseC) => expenseC.amount + totalC, 0 )
+        
+      filteredExpenses.length ? setFilteredAmount(totalCategory) : setFilteredAmount(0)
+      
+      const totalSpent = expenses.reduce( (total, expense) => expense.amount + total, 0 )
+      const newPercentageCat = ((totalCategory / totalSpent) *100).toFixed(0)
+
+      setTimeout(() => {
+        setPercentageCat(newPercentageCat)
+      },500)
+    
     }
   },[filter])
 
@@ -94,6 +110,13 @@ function App() {
     const updateExpenses = expenses.filter( expense => expense.id !== id)
     setExpenses(updateExpenses)
   }
+
+  // calculate percentage of the total
+    
+  useEffect(() => {
+    
+
+},[filter])
   
   return (
     <div className={modal ? 'fix' : ''}>
@@ -104,6 +127,11 @@ function App() {
         setBudget={setBudget}
         isValidBudget={isValidBudget}
         setIsValidBudget={setIsValidBudget}
+        filter={filter}
+        filteredExpenses={filteredExpenses}
+        filteredAmount={filteredAmount}
+        setFilteredAmount={setFilteredAmount}
+        percentageCat={percentageCat}
       />
       {isValidBudget && (
         <>
