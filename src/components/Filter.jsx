@@ -18,7 +18,7 @@ const Filter = ({filter, setFilter}) => {
                     <option value="health">Health</option>
                     <option value="transport">Transport</option>
                     <option value="subscriptions">Subscriptions</option>
-                    <option value="misc">Miscellaneous</option>
+                    <option value="miscellaneous">Miscellaneous</option>
                 </select>
             </div>
         </form>
