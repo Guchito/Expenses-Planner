@@ -25,7 +25,6 @@ const BudgetControl = ( {budget,
         //Calculate percetage
         const newPercentage = (((budget - totalAvailable)/budget) * 100).toFixed(0)
         
-       
         
         setSpent(totalSpent)
         setAvailable(totalAvailable)
@@ -71,25 +70,21 @@ const BudgetControl = ( {budget,
                 text={`${percentage}%`}
             
             />
-            {useEffect(() => {
-                console.log(percentageCat)
-                filteredAmount !== 0 ? (
+            { filter ? (
                 <CircularProgressbar 
                     styles={buildStyles({
                         pathColor: percentage > 100 ? '#DC2626' :'#3B82F6',
                         trailColor: '#F5F5F5',
-                        textColor: percentage > 100 ? '#DC2626' :'#3B82F6'
-    
+                        textColor: percentage > 100 ? '#DC2626' :'#3B82F6',
+                        
+
                     })}
-                    value={percentageCat}
-                    text={`${percentageCat}% of spent`}
+                    value={Number(percentageCat)}
+                    text={`${Number(percentageCat)}% of spent`}
                 
                 />
                     
-                ):('')
-
-
-            })}
+                ):('')}
 
         </div>
         <div className="content-budget">

@@ -1,6 +1,6 @@
 import React from 'react'
 import NewBudget from './NewBudget'
-import BudgetControl from './budgetControl'
+import BudgetControl from './BudgetControl'
 
 
 export const Header = ({
