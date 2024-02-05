@@ -27,6 +27,7 @@ function App() {
   const [percentageCat, setPercentageCat] =useState(0)
 
 
+
   useEffect(()=>{
     if(Object.keys(editExpense).length > 0) {
       setModal(true)
@@ -49,14 +50,15 @@ function App() {
       filteredExpenses.length ? setFilteredAmount(totalCategory) : setFilteredAmount(0)
       
       const totalSpent = expenses.reduce( (total, expense) => expense.amount + total, 0 )
-      const newPercentageCat = ((totalCategory / totalSpent) *100).toFixed(0)
-
-      setTimeout(() => {
+      
+      if(totalCategory === 0){
+        setPercentageCat(0)
+      }else{
+        const newPercentageCat =((totalCategory / totalSpent) * 100).toFixed(0)
         setPercentageCat(newPercentageCat)
-      },500)
-    
+      }   
     }
-  },[filter])
+  },[filter, expenses])
 
 
   //Local Storage
@@ -111,12 +113,7 @@ function App() {
     setExpenses(updateExpenses)
   }
 
-  // calculate percentage of the total
-    
-  useEffect(() => {
-    
 
-},[filter])
   
   return (
     <div className={modal ? 'fix' : ''}>
