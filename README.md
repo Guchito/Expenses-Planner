@@ -20,7 +20,7 @@ A simple and intuitive expense planner application built with React and Vite. Se
 
 To run the application locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/expense-planner.git`
+1. Clone the repository: `git clone https://github.com/guchito/expense-planner.git`
 2. Install dependencies: `npm install`
 3. Start the development server: `npm run dev`
 
