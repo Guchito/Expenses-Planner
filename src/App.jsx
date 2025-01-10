@@ -38,6 +38,7 @@ function App() {
     }
   },[editExpense])
 
+  
 
   useEffect(() => {
     if(filter) {
