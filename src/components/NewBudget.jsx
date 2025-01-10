@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { Msg } from './Msg'
 
+
 export const NewBudget = ({
     budget, 
     setBudget, 
@@ -28,7 +29,7 @@ export const NewBudget = ({
                     type="number"
                     className='new-budget'
                     placeholder='Add your budget'
-                    value={budget}
+                    value={budget > 0 ? budget : ''}
                     onChange={ e => setBudget(Number(e.target.value))}
                 />
                 </div>

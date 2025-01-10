@@ -144,14 +144,16 @@ function App() {
               filter={filter}
               filteredExpenses={filteredExpenses} 
             />
-          </main>  
-          <div className="new-expense">
-            <img 
-              src={NewExpenseIcon} 
-              alt="New expense Icon" 
-              onClick={handleNewExpense}
-              />
-          </div>
+          </main>
+          <div className="new-expense-container">
+            <div className="new-expense">
+              <img 
+                src={NewExpenseIcon} 
+                alt="New expense Icon" 
+                onClick={handleNewExpense}
+                />
+            </div>
+          </div>  
         </>
       )}
       {modal && <Modal 
