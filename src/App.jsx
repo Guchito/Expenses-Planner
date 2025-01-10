@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import ListExpenses from './components/ListExpenses'
-import Modal from './components/modal'
-import Filter from './components/filter'
+import Modal from './components/Modal'
+import Filter from './components/Filter'
 import {getId} from './helpers'
 import NewExpenseIcon from './img/nuevo-gasto.svg'
 
