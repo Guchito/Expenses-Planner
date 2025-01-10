@@ -320,7 +320,7 @@ main {
 
 
 .new-expense {
-    position: absolute;
+    position: fixed;
     bottom: 5rem;
     right: 5rem;
 }
