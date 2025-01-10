@@ -318,11 +318,25 @@ main {
     font-weight: 400;
 }
 
-.new-expense {
-    position: fixed;
-    bottom: 5rem;
-    right: 5rem;
+.new-expense-container{
+    max-width: 80rem;
+    margin: 0 auto;
+    position: relative
 }
+
+.new-expense {
+    position: absolute;
+    top: 5rem;
+    right: 0;
+  }
+
+  @media (max-width: 768px) {
+    .new-expense {
+        right: 5rem;
+        top: -6rem;
+    }
+
+  }
 
 .new-expense img {
     width: 5rem;

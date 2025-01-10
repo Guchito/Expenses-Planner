@@ -83,7 +83,7 @@ const Modal = ({
               id='amount'
               type="number"
               placeholder='Add amount'
-              value={amount} 
+              value={amount > 0 ? amount : ''} 
               onChange={e => setAmount(Number(e.target.value))}
             />
           </div>
